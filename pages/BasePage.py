@@ -1,6 +1,5 @@
 from utilities import ConfigReader
 
-
 class BasePage:
 
     def __init__(self, page):
