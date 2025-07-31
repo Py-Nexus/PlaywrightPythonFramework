@@ -5,6 +5,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 # from allure_commons.types import AttachmentType
 from utilities import ConfigReader
+from reportportal_client import RPLogger
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 VIDEO_DIR = BASE_DIR / "videos"
@@ -72,3 +73,34 @@ def pytest_runtest_makereport(item, call):
 #             name="Failure Screenshot",
 #             attachment_type=AttachmentType.PNG
 #         )
+
+@pytest.fixture(scope='session')
+def rp_logger():
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    logging.setLoggerClass(RPLogger)
+    return logger
+
+
+@pytest.fixture(autouse=True)
+def skip_by_mark(request):
+    if request.node.get_closest_marker('fixture_skip'):
+        pytest.skip('skip by fixture')
+
+
+@pytest.fixture(scope='session')
+def rp_launch_id(request):
+    if hasattr(request.config, "py_test_service"):
+        return request.config.py_test_service.rp.launch_uuid
+
+
+@pytest.fixture(scope='session')
+def rp_endpoint(request):
+    if hasattr(request.config, "py_test_service"):
+        return request.config.py_test_service.rp.endpoint
+
+
+@pytest.fixture(scope='session')
+def rp_project(request):
+    if hasattr(request.config, "py_test_service"):
+        return request.config.py_test_service.rp.project
