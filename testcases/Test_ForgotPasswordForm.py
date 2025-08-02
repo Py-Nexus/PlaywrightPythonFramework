@@ -12,10 +12,10 @@ class Test_ForgotPasswordForm:
         forgot_password_page.enter_email("a@a.in")
         forgot_password_page.click_retrieve_password()
         rp_logger.info("Email entered and retrieve password clicked")
-        # rp_logger.info("Verifying retrieve password confirmation message")
-        # confirmation_text = forgot_password_page.get_text("password_retrieved_message_XPATH")
-        # assert "An e-mail has been sent to you which explains how to reset your password" in confirmation_text.strip(), \
-        #     f"Unexpected confirmation message: {confirmation_text}"
-        # rp_logger.info("Retrieve password confirmation verified successfully")
+        rp_logger.info("Verifying retrieval message")
+        p_text = forgot_password_page.get_retrieval_message()
+        assert p_text == "An e-mail has been sent to you which explains how to reset your password.", f"Unexpected message: {p_text}"
+        rp_logger.info("Retrieval message verified successfully")
+
 
 

@@ -1,5 +1,5 @@
 from pages.BasePage import BasePage
-
+import re
 class ForgotPasswordPage(BasePage):
 
     def __init__(self, page):
@@ -15,3 +15,8 @@ class ForgotPasswordPage(BasePage):
 
     def click_retrieve_password(self):
         self.click("retrieve_password_button_XPATH")
+
+    def get_retrieval_message(self):
+        p_text = self.get_text_from_first_p_tag("password_retrieved_message_CSS")
+        p_text=re.sub(r'\s+', ' ', p_text).strip()
+        return p_text
