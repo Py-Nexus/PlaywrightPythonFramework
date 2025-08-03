@@ -8,4 +8,5 @@ class Test_LoginPage:
         login = LoginPage(page)
         rp_logger.info("Login Test Case Started")
         #page.pause()    # The below pause is used to pause the test execution in Playwright Inspector
-        login.navigate_to_test_login_page()
+        title = login.navigate_to_test_login_page()
+        assert title == "Test Login Page for Automation Testing Practice", f"Unexpected title {title}"

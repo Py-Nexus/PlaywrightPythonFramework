@@ -24,6 +24,6 @@ class BasePage:
 
     def is_visible(self, locator):
         locator = self.page.locator(ConfigReader.read_config("locators", locator))
-        locator.wait_for(state="visible", timeout=5000)
-        locator.scroll_into_view_if_needed()
+        # locator.wait_for(state="visible", timeout=5000)
+        expect(locator).to_be_visible(timeout=5000)
         return locator.is_visible()

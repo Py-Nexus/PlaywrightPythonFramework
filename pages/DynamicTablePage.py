@@ -9,7 +9,7 @@ class DynamicTablePage(BasePage):
     def navigate_to_dynamic_table_page(self):
         self.click("tryout_dynamic_table_XPATH")
         title = self.page.title()
-        assert title == "Dynamic Tables page for Automation Testing Practice", f"Unexpected title {title}"
+        return title
 
     def validate_table_is_visible(self):
         assert self.is_visible("dynamic_table_className"), "Dynamic table is not visible on the page"
@@ -22,4 +22,7 @@ class DynamicTablePage(BasePage):
         label_text = self.get_text("Chrome_CPU_value_XPATH")
         _cpu_value_from_yellow_row = label_text.split(":")[1].strip()
         return _cpu_value_from_yellow_row
+
+    def validate_if_yellow_row_is_visible(self):
+        assert self.is_visible("Chrome_CPU_value_XPATH"), "Yellow row is not visible on the page"
 

@@ -8,7 +8,7 @@ class ForgotPasswordPage(BasePage):
     def navigate_to_forgot_password_page(self):
         self.click("tryout_forgot_password_form_XPATH")
         title = self.page.title()
-        assert title == "Forgot Password form page for Automation Testing Practice", f"Unexpected title {title}"
+        return title
 
     def enter_email(self, email):
         self.type("email_input_id", email)
