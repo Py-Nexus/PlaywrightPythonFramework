@@ -1,3 +1,4 @@
+import logging
 import os
 # import allure
 import pytest
@@ -26,9 +27,9 @@ def browser(playwright_instance, request):
     browser_type = request.param
 
     if browser_type == "chrome":
-        browser = playwright_instance.chromium.launch(headless=False)
+        browser = playwright_instance.chromium.launch(headless=True)
     elif browser_type == "firefox":
-        browser = playwright_instance.firefox.launch(headless=False)
+        browser = playwright_instance.firefox.launch(headless=True)
     else:
         raise ValueError(f"Unsupported browser: {browser_type}")
 
