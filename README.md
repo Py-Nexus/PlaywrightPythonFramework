@@ -26,7 +26,9 @@
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the Repository
-git clone https://github.com/Py-Nexus/PlaywrightPythonFramework
+```bash
+git clone https://github.com/Py-Nexus/PlaywrightPythonFramework.git
+```
 
 ### 2️⃣ Set Up Python Virtual Environment
 ```bash
@@ -84,7 +86,5 @@ Contributions are welcome! Please:
 ## 📄 License
 
 MIT License. Feel free to use and share.
-
----
 
 > Made with 🤖✅ by [Kunal](https://github.com/Py-Nexus) and [Amit](https://github.com/amit-automationQA)
