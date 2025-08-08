@@ -6,7 +6,6 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 # from allure_commons.types import AttachmentType
 from utilities import ConfigReader
-from reportportal_client import RPLogger
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 VIDEO_DIR = BASE_DIR / "videos"
@@ -77,9 +76,13 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture(scope='session')
 def rp_logger():
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-    logging.setLoggerClass(RPLogger)
+    logger = logging.getLogger("reportportal")
+    logger.setLevel(logging.INFO)
+    if not logger.hasHandlers():
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
     return logger
 
 

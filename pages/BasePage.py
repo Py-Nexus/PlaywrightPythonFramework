@@ -1,6 +1,4 @@
 from playwright.sync_api import expect
-
-from testcases.conftest import rp_logger
 from utilities import ConfigReader
 class BasePage:
 
