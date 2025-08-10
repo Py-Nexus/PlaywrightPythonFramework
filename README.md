@@ -6,7 +6,8 @@
 ![ReportPortal](https://img.shields.io/badge/ReportPortal.io-FF6F00?style=for-the-badge&logo=datadog&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![PyCharm](https://img.shields.io/badge/PyCharm-21D789?style=for-the-badge&logo=pycharm&logoColor=white)
-
+![GitHub Repo stars](https://img.shields.io/github/stars/Py-Nexus/PlaywrightPythonFramework?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/Py-Nexus/PlaywrightPythonFramework?style=for-the-badge)
 > A scalable and maintainable UI test automation framework built using **Python**, **Playwright**, **Pytest**, and integrated with **ReportPortal.io** for real-time test reporting. Developed and maintained using **PyCharm IDE**. **Docker** support is included for easy setup and execution.
 ---
 
@@ -21,6 +22,28 @@
 | **IDE**          | PyCharm (recommended for development)           |
 | **Container**    | Docker (for isolated, reproducible runs)        |
 
+---
+## ✨ Why This Framework?
+- **Cross-browser testing** powered by Playwright (Chromium, Firefox, WebKit)
+- **Real-time test analytics** with ReportPortal.io
+- **Containerized execution** via Docker
+- **Easily maintainable structure** with reusable utilities & fixtures
+- **Supports CI/CD pipelines** out of the box
+---
+### 📂 Project Structure
+```bash
+PlaywrightPythonFramework/
+│── configdata/         # Test URLs and locators 
+│── pages/              # Page object models
+│── testcases/          # Test cases
+│── utilities/          # Helper functions
+│── .gitignore          # Git ignore file
+│── docker-compose.yaml # Docker Compose config
+│── Dockerfile          # Docker config
+│── pytest.ini          # Pytest and ReportPortal config
+│── requirements.txt    # Dependencies
+│── README.md           # Project documentation
+```
 ---
 
 ## ⚙️ Setup Instructions
@@ -44,8 +67,8 @@ playwright install
 
 ### 4️⃣ Configure ReportPortal
 ```bash
-rp_uuid = <your_user_token>
-rp_endpoint = https://<your_reportportal_url>/api/v1
+rp_api_key = <your_api_key_here>
+rp_endpoint = https://<your_reportportal_url>
 rp_project = <your_project_name>
 rp_launch = Playwright Python Run
 rp_enable = True
