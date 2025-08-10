@@ -1,11 +1,12 @@
 import inspect
+import pytest
 from pytest_check import check
 from pages.LoginPage import LoginPage
 from testcases.conftest import rp_logger
 
 
 class Test_LoginPage:
-
+    @pytest.mark.smoke
     def test_goto_test_login_page(self, page, rp_logger):
         try:
             login = LoginPage(page)

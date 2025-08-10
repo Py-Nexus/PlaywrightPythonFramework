@@ -1,10 +1,11 @@
 import inspect
+import pytest
 from pytest_check import check
 from testcases.conftest import rp_logger
 from pages.DynamicTablePage import DynamicTablePage
 
 class Test_DynamicTablePage:
-
+    @pytest.mark.regression
     def test_dynamic_table_page(self, page, rp_logger):
         try:
             rp_logger.info("Navigating to Dynamic Table Page")

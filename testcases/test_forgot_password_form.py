@@ -1,10 +1,11 @@
 import inspect
+import pytest
 from pytest_check import check
 from pages.ForgotPasswordPage import ForgotPasswordPage
 from testcases.conftest import rp_logger
 
 class Test_ForgotPasswordForm:
-
+    @pytest.mark.regression
     def test_forgot_password_form(self, page, rp_logger):
         try:
             rp_logger.info("Navigating to Forgot Password Form")
