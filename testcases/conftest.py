@@ -1,10 +1,7 @@
 import logging
-import os
-# import allure
 import pytest
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-# from allure_commons.types import AttachmentType
 from utilities import ConfigReader
 
 BASE_DIR = Path(__file__).resolve().parent.parent
