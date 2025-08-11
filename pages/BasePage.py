@@ -1,6 +1,4 @@
 from playwright.sync_api import expect
-
-from testcases.conftest import rp_logger
 from utilities import ConfigReader
 class BasePage:
 
@@ -17,10 +15,10 @@ class BasePage:
         self.page.locator(ConfigReader.read_config("locators",locator)).hover()
 
     def get_text(self, locator):
-        return self.page.locator(ConfigReader.read_config("locators",locator)).text_content()
+        return self.page.locator(ConfigReader.read_config("locators",locator)).inner_text()
 
     def get_text_from_first_p_tag(self, locator):
-        return self.page.locator(ConfigReader.read_config("locators", locator)).first.text_content()
+        return self.page.locator(ConfigReader.read_config("locators", locator)).first.inner_text()
 
     def is_visible(self, locator):
         locator = self.page.locator(ConfigReader.read_config("locators", locator))
