@@ -1,3 +1,4 @@
+# Ignore Python bytecode and virtual environments
 __pycache__/
 *.pyc
 *.log
@@ -5,3 +6,8 @@ venv/
 .env
 .pytest_cache/
 *.pytest.ini
+
+# Ignore Playwright test artifacts
+videos/
+screenshot/
+trace.zip

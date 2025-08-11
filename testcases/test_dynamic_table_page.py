@@ -4,6 +4,7 @@ from pytest_check import check
 from testcases.conftest import rp_logger
 from pages.DynamicTablePage import DynamicTablePage
 
+@pytest.mark.usefixtures("page")
 class Test_DynamicTablePage:
     @pytest.mark.regression
     def test_dynamic_table_page(self, page, rp_logger):

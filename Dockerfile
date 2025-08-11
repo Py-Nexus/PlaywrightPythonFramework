@@ -26,4 +26,4 @@ RUN pip install --no-cache-dir --upgrade pip setuptools \
   && pip install --no-cache-dir -r requirements.txt
 
 # Set the default command to run tests
-CMD ["pytest", "--reportportal"]
+CMD ["pytest", "-v" , "--reportportal"]
