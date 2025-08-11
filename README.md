@@ -25,7 +25,9 @@
 ---
 ## ✨ Why This Framework?
 - **Cross-browser testing** powered by Playwright (Chromium, Firefox, WebKit)
+- **Custom browser selection** via `--my-browser` CLI option
 - **Real-time test analytics** with ReportPortal.io
+- **Automatic screenshot capture on failure** (screenshots uploaded to ReportPortal)
 - **Containerized execution** via Docker
 - **Easily maintainable structure** with reusable utilities & fixtures
 - **Supports CI/CD pipelines** out of the box
@@ -95,6 +97,19 @@ pytest tests/test_example.py::test_open_google
 ```bash
 docker compose run --rm playwright-python-framework pytest tests/test_example.py::test_open_google
 ```
+### 🌐 Run Tests in a Specific Browser
+You can specify the browser at runtime using the `--my-browser` parameter:
+```bash
+pytest --my-browser={browser_name} -v --reportportal
+```
+## 📸 Automatic Screenshot on Failure
+
+If a test fails, the framework will:
+
+- Capture a screenshot of the last browser state  
+- Upload the screenshot to **ReportPortal** automatically  
+
+This feature ensures easy debugging with **visual proof of failure**.
 
 ## 🤝 Contributing
 
@@ -108,6 +123,6 @@ Contributions are welcome! Please:
 
 ## 📄 License
 
-MIT License. Feel free to use and share.
+Feel free to use and share.
 
 > Made with 🤖✅ by [Kunal](https://github.com/Py-Nexus) and [Amit](https://github.com/amit-automationQA)
