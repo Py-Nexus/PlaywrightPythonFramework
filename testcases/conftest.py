@@ -13,21 +13,33 @@ TRACE_PATH = BASE_DIR / "trace.zip"
 # Ensure necessary directories exist
 VIDEO_DIR.mkdir(exist_ok=True)
 SCREENSHOT_DIR.mkdir(exist_ok=True)
+TRACE_PATH.parent.mkdir(exist_ok=True)
 
+# ====== Pytest Configuration ======
+def pytest_addoption(parser):
+    parser.addoption(
+        "--my-browser",
+        action="store",
+        default="chrome",
+        choices=["chrome", "firefox", "webkit"],
+        help="Browser to run tests on"
+    )
 # ====== Playwright Fixtures ======
 @pytest.fixture(scope="session")
 def playwright_instance():
     with sync_playwright() as p:
         yield p
 
-@pytest.fixture(params=["chrome"], scope="function")
+# ====== Browser, Context, and Page Fixtures ======
+@pytest.fixture(scope="function")
 def browser(playwright_instance, request):
-    browser_type = request.param
-
+    browser_type = request.config.getoption("--my-browser")
     if browser_type == "chrome":
         browser = playwright_instance.chromium.launch(headless=True)
     elif browser_type == "firefox":
         browser = playwright_instance.firefox.launch(headless=True)
+    elif browser_type == "webkit":
+        browser = playwright_instance.webkit.launch(headless=True)
     else:
         raise ValueError(f"Unsupported browser: {browser_type}")
 
