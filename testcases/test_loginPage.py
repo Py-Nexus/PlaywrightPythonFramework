@@ -4,7 +4,7 @@ from pytest_check import check
 from pages.LoginPage import LoginPage
 from testcases.conftest import rp_logger
 
-
+@pytest.mark.usefixtures("page")
 class Test_LoginPage:
     @pytest.mark.smoke
     def test_goto_test_login_page(self, page, rp_logger):
@@ -15,7 +15,6 @@ class Test_LoginPage:
             title = login.navigate_to_test_login_page()
             expected_title = "Test Login Page for Automation Testing Practice"
             check.equal(title, expected_title, f"Expected title '{expected_title}' but got '{title}'")
-            # expect(title).to_contain("Test Login Page for Automation Testing Practice")
             rp_logger.info("Login Test Case Completed Successfully")
         except:
             # Get the name of the currently executing function (useful for logging test name)
