@@ -1,4 +1,4 @@
-# 🤖 UI Test Automation Framework
+# 🤖 UI Test Automation Framework using Playwright
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
@@ -8,7 +8,7 @@
 ![PyCharm](https://img.shields.io/badge/PyCharm-21D789?style=for-the-badge&logo=pycharm&logoColor=white)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Py-Nexus/PlaywrightPythonFramework?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/Py-Nexus/PlaywrightPythonFramework?style=for-the-badge)
-> A scalable and maintainable UI test automation framework built using **Python**, **Playwright**, **Pytest**, and integrated with **ReportPortal.io** for real-time test reporting. Developed and maintained using **PyCharm IDE**. **Docker** support is included for easy setup and execution.
+> A scalable and maintainable UI test automation framework built using **Python**, **Playwright**, **Pytest**, and integrated with **ReportPortal.io** for real-time test reporting. **Docker** support is included for easy setup and execution.
 ---
 
 ## 🛠️ Tech Stack
@@ -67,7 +67,7 @@ pip install -r requirements.txt
 playwright install
 ```
 
-### 4️⃣ Configure ReportPortal
+### 4️⃣ Configure ReportPortal in Pytest.ini
 ```bash
 rp_api_key = <your_api_key_here>
 rp_endpoint = https://<your_reportportal_url>
